@@ -1,10 +1,10 @@
 require("dotenv").config();
-const API_URL = process.env.API_URL;
+const ALCHEMY_URL = process.env.ALCHEMY_URL;
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
-const web3 = createAlchemyWeb3(API_URL);
+const web3 = createAlchemyWeb3(ALCHEMY_URL);
 
 const contract = require("../artifacts/contracts/Wearable.sol/Wearable.json");
 const contractAddress = "0xBEAD1793f02bc92eB3cb34f67911645f624E90e0";
@@ -35,7 +35,7 @@ async function mintNFT(receiverAddress, tokenURI) {
     nonce,
     PUBLIC_KEY,
     PRIVATE_KEY,
-    API_URL,
+    ALCHEMY_URL,
     contractAddress,
     gas,
   });
