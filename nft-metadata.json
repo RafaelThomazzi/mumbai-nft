@@ -1,0 +1,15 @@
+{
+    "attributes": [
+        {
+            "trait_type": "Server",
+            "value": "Malvera"
+        },
+        {
+            "trait_type": "Year",
+            "value": "2006"
+        }
+    ],
+    "description": "Three friends on the Malvera server in 2006.",
+    "image": "ipfs://QmYBieYBQodaoQZpoPDLeTG1SP2jNXtkii6Y1HJ4hcaCM4",
+    "name": "Master Sorcerers"
+}
