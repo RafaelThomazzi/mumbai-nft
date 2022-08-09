@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\contracts\\Wearable.sol": {
-      "lastModificationDate": 1659905090909,
-      "contentHash": "8209642c3cc23f9875e297cac803274a",
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\contracts\\Wearable.sol": {
+      "lastModificationDate": 1660064514441,
+      "contentHash": "e1a23f977f3b32f198da5da5282831f8",
       "sourceName": "contracts/Wearable.sol",
       "solcConfig": {
         "version": "0.8.1",
@@ -32,7 +32,8 @@
         "@openzeppelin/contracts/token/ERC721/ERC721.sol",
         "@openzeppelin/contracts/utils/Counters.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -41,8 +42,8 @@
         "Wearable"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
-      "lastModificationDate": 1659905010026,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
+      "lastModificationDate": 1659978098372,
       "contentHash": "79ff1a7eb801a525aa315fb7a679eede",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -84,8 +85,8 @@
         "ERC721"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
-      "lastModificationDate": 1659905009777,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
+      "lastModificationDate": 1659978098272,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -119,8 +120,8 @@
         "Counters"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1659905010392,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1659978098472,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -156,8 +157,8 @@
         "Ownable"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721URIStorage.sol": {
-      "lastModificationDate": 1659905010059,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721URIStorage.sol": {
+      "lastModificationDate": 1659978098381,
       "contentHash": "8af32effd0536e2971ff8496812a5016",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
       "solcConfig": {
@@ -193,8 +194,46 @@
         "ERC721URIStorage"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
-      "lastModificationDate": 1659905010286,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721Pausable.sol": {
+      "lastModificationDate": 1659978098378,
+      "contentHash": "2bc2d361b7e7bda979021da66e1696af",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC721.sol",
+        "../../../security/Pausable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Pausable"
+      ]
+    },
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
+      "lastModificationDate": 1659978098441,
       "contentHash": "ec99d946db3685a3630554aa6055bd7f",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
@@ -230,8 +269,8 @@
         "IERC721"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
-      "lastModificationDate": 1659905010304,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
+      "lastModificationDate": 1659978098446,
       "contentHash": "c22d4395e33763de693fd440c6fd10e1",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -265,8 +304,8 @@
         "IERC721Receiver"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
-      "lastModificationDate": 1659905010298,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
+      "lastModificationDate": 1659978098444,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -302,8 +341,8 @@
         "IERC721Metadata"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
-      "lastModificationDate": 1659905009712,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
+      "lastModificationDate": 1659978098252,
       "contentHash": "c476b3895a94798b88a4bb97399e6dfe",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
@@ -337,8 +376,8 @@
         "Address"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1659905009772,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1659978098270,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -372,8 +411,8 @@
         "Context"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
-      "lastModificationDate": 1659905010455,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
+      "lastModificationDate": 1659978098491,
       "contentHash": "cf46906c4035f51639a22265066a9e78",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -407,8 +446,8 @@
         "Strings"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
-      "lastModificationDate": 1659905009935,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
+      "lastModificationDate": 1659978098343,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -444,8 +483,8 @@
         "ERC165"
       ]
     },
-    "C:\\Users\\rthomazzi\\Documents\\workspaces\\olaplex\\olaplex-nft\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
-      "lastModificationDate": 1659905010223,
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
+      "lastModificationDate": 1659978098426,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -477,6 +516,43 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\node_modules\\@openzeppelin\\contracts\\security\\Pausable.sol": {
+      "lastModificationDate": 1659978098473,
+      "contentHash": "25c8108f36fdd472bc78d4c4af240c11",
+      "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Pausable"
       ]
     }
   }

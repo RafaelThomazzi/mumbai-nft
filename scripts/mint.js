@@ -7,7 +7,7 @@ const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(ALCHEMY_URL);
 
 const contract = require("../artifacts/contracts/Wearable.sol/Wearable.json");
-const contractAddress = "0xBEAD1793f02bc92eB3cb34f67911645f624E90e0";
+const contractAddress = "0x69e5E4F31CAdA6030000777Ca4bfa981491Ad625";
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 async function mintNFT(receiverAddress, tokenURI) {

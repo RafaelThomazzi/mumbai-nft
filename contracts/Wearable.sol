@@ -6,15 +6,17 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
 
-contract Wearable is ERC721URIStorage, Ownable {
+contract Wearable is ERC721URIStorage, Ownable, Pausable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
     constructor() ERC721("Wearable", "OLA") {}
 
     function mintNFT(address recipient, string memory tokenURI)
-        public onlyOwner
+        public
+        onlyOwner
         returns (uint256)
     {
         _tokenIds.increment();
@@ -24,5 +26,17 @@ contract Wearable is ERC721URIStorage, Ownable {
         _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
+    }
+
+    function destroyNFT(uint256 tokenId) public onlyOwner {
+        _burn(tokenId);
+    }
+
+    function pause() public onlyOwner {
+        _pause();
+    }
+
+    function unpause() public onlyOwner {
+        _unpause();
     }
 }
