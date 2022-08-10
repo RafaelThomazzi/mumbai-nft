@@ -8,13 +8,13 @@ const contract = require("../artifacts/contracts/Wearable.sol/Wearable.json");
 const contractAddress = "0x69e5E4F31CAdA6030000777Ca4bfa981491Ad625";
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
-async function burnNFT(tokenId) {
+async function pause() {
   try {
-    const destroy = await nftContract.methods.destroyNFT(tokenId).encodeABI();
-    console.log(destroy);
+    const pause = await nftContract.methods.pause().encodeABI();
+    console.log(pause);
   } catch (error) {
     console.log(error);
   }
 }
 
-burnNFT("0x0000000000000000000000000000000000000000000000000000000000000004");
+pause();
