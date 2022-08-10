@@ -1,79 +1,43 @@
 require("dotenv").config();
 const ALCHEMY_URL = process.env.ALCHEMY_URL;
-const PUBLIC_KEY = process.env.PUBLIC_KEY;
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const OWNER_PUBLIC_KEY = process.env.OWNER_PUBLIC_KEY;
+const NFTContractAddress = process.env.NFT_CONTRACT_ADDRESS;
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(ALCHEMY_URL);
 
 const contract = require("../artifacts/contracts/Wearable.sol/Wearable.json");
-const contractAddress = "0x69e5E4F31CAdA6030000777Ca4bfa981491Ad625";
-const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
+const signTransaction = require("../functions/SignTransaction");
+const NFTContract = new web3.eth.Contract(contract.abi, NFTContractAddress);
 
 async function mintNFT(receiverAddress, tokenURI) {
   try {
-    const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest"); //get latest nonce
-    const balance = await web3.eth.getBalance(PUBLIC_KEY);
+    console.log('minting a new nft...')
+    const nonce = await web3.eth.getTransactionCount(OWNER_PUBLIC_KEY, "latest"); //get latest nonce
 
-    const data = nftContract.methods
+    const data = NFTContract.methods
       .mintNFT(receiverAddress, tokenURI)
       .encodeABI();
 
     const gas = await web3.eth.estimateGas({
-      from: PUBLIC_KEY,
-      to: contractAddress,
+      from: OWNER_PUBLIC_KEY,
+      to: NFTContractAddress,
       data,
     });
 
     const tx = {
-      from: PUBLIC_KEY,
-      to: contractAddress,
+      from: OWNER_PUBLIC_KEY,
+      to: NFTContractAddress,
       nonce: nonce,
       gas,
       data,
     };
-
-    console.log({
-      balance,
-      nonce,
-      PUBLIC_KEY,
-      PRIVATE_KEY,
-      ALCHEMY_URL,
-      contractAddress,
-      gas,
-    });
-
-    const signTransaction = await web3.eth.accounts.signTransaction(
-      tx,
-      PRIVATE_KEY
-    );
-
-    const sendSignedTransaction = await web3.eth.sendSignedTransaction(
-      signTransaction.rawTransaction,
-      async (error, hash) => {
-        if (error) {
-          console.log(
-            "Something went wrong when submitting your transaction:",
-            error
-          );
-        }
-
-        const interval = setInterval(function () {
-          web3.eth.getTransactionReceipt(hash, function (err, receipt) {
-            if (receipt) {
-              clearInterval(interval);
-              return receipt;
-            }
-          });
-        }, 1000);
-      }
-    );
-
-    console.log(sendSignedTransaction);
+    console.log({tx})
+    const signedTransaction = await signTransaction({tx, web3})
 
     const {
       logs: [{ topics }],
-    } = sendSignedTransaction;
+    } = signedTransaction;
     const [, , , tokenId] = Array.from(topics);
     console.log({ tokenId });
   } catch (error) {
@@ -82,6 +46,6 @@ async function mintNFT(receiverAddress, tokenURI) {
 }
 
 mintNFT(
-  PUBLIC_KEY,
+  OWNER_PUBLIC_KEY,
   "https://gateway.pinata.cloud/ipfs/QmPsbGNds3T48Q4cHJ4itAiFSjfsa4ghmBzFnb2VwsvePN"
 );

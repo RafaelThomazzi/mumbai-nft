@@ -10,12 +10,10 @@ const contract = require("../artifacts/contracts/Wearable.sol/Wearable.json");
 const signTransaction = require("../functions/SignTransaction");
 const NFTContract = new web3.eth.Contract(contract.abi, NFTContractAddress);
 
-async function pause() {
+async function transfer({ from, to, tokenId }) {
   try {
-    console.log('pausing contract...')
-    const nonce = await web3.eth.getTransactionCount(OWNER_PUBLIC_KEY, "latest");
-    const data = NFTContract.methods.pause().encodeABI();
-
+    console.log('transferring nft...')
+    const data = NFTContract.methods.transferFrom(from, to, tokenId).encodeABI();
     const gas = await web3.eth.estimateGas({
       from: OWNER_PUBLIC_KEY,
       to: NFTContractAddress,
@@ -25,15 +23,19 @@ async function pause() {
     const tx = {
       from: OWNER_PUBLIC_KEY,
       to: NFTContractAddress,
-      nonce: nonce,
       gas,
       data,
     };
 
     await signTransaction({tx, web3})
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
+    throw error;
   }
 }
 
-pause();
+transfer({
+  from: "0x7b123E24Ca552648Fa66ea7428362ecF2b0eDB3F",
+  to: "0xed8eca1917f586b67d2fb88930002e60828958a6",
+  tokenId: "0x0000000000000000000000000000000000000000000000000000000000000008",
+});

@@ -28,6 +28,10 @@ contract Wearable is ERC721URIStorage, Ownable, Pausable {
         return newItemId;
     }
 
+    function transferNFT(address from, address to, uint256 tokenId) public{
+        transferFrom(from, to, tokenId);
+    }
+
     function destroyNFT(uint256 tokenId) public onlyOwner {
         _burn(tokenId);
     }
