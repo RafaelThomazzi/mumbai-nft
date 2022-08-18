@@ -7,8 +7,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Royalty.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
-contract Wearable is ERC721Royalty, ERC721URIStorage, Ownable, Pausable {
+contract Wearable is
+    ERC721Royalty,
+    ERC721URIStorage,
+    ERC721Enumerable,
+    Ownable,
+    Pausable
+{
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
@@ -36,7 +43,7 @@ contract Wearable is ERC721Royalty, ERC721URIStorage, Ownable, Pausable {
         address from,
         address to,
         uint256 tokenId
-    ) public override whenNotPaused {
+    ) public override(ERC721) whenNotPaused {
         require(
             _isApprovedOrOwner(_msgSender(), tokenId),
             "ERC721: caller is not token owner nor approved"
@@ -61,16 +68,12 @@ contract Wearable is ERC721Royalty, ERC721URIStorage, Ownable, Pausable {
         address from,
         address to,
         uint256 tokenId
-    ) public virtual override whenNotPaused {
+    ) public virtual override(ERC721) whenNotPaused {
         require(
             _isApprovedOrOwner(_msgSender(), tokenId),
             "ERC721: caller is not token owner nor approved"
         );
         _safeTransfer(from, to, tokenId, "");
-    }
-
-    function destroyNFT(uint256 tokenId) public onlyOwner {
-        _burn(tokenId);
     }
 
     function pause() public onlyOwner {
@@ -81,11 +84,15 @@ contract Wearable is ERC721Royalty, ERC721URIStorage, Ownable, Pausable {
         _unpause();
     }
 
+    function destroyNFT(uint256 tokenId) public onlyOwner {
+        _burn(tokenId);
+    }
+
     function _burn(uint256 tokenId)
         internal
-        override(ERC721Royalty, ERC721URIStorage)
+        override(ERC721Royalty, ERC721URIStorage, ERC721)
     {
-        ERC721URIStorage._burn(tokenId);
+        super._burn(tokenId);
     }
 
     function tokenURI(uint256 tokenId)
@@ -100,9 +107,29 @@ contract Wearable is ERC721Royalty, ERC721URIStorage, Ownable, Pausable {
     function supportsInterface(bytes4 interfaceId)
         public
         view
-        override(ERC721, ERC721Royalty)
+        override(ERC721, ERC721Royalty, ERC721Enumerable)
         returns (bool)
     {
-        return ERC721Royalty.supportsInterface(interfaceId);
+        return super.supportsInterface(interfaceId);
+    }
+
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal virtual override(ERC721, ERC721Enumerable) {
+        super._beforeTokenTransfer(from, to, tokenId);
+    }
+
+    function totalSupply() public view override returns (uint256){
+        return ERC721Enumerable.totalSupply();
+    }
+
+    function tokenOfOwnerByIndex(address owner, uint256 index) public view override returns (uint256){
+        return ERC721Enumerable.tokenOfOwnerByIndex(owner, index);
+    }
+
+    function tokenByIndex(uint256 index) override public view returns (uint256){
+        return ERC721Enumerable.tokenByIndex(index);
     }
 }
