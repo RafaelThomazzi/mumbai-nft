@@ -47,5 +47,5 @@ async function mintNFT(receiverAddress, tokenURI) {
 
 mintNFT(
   OWNER_PUBLIC_KEY,
-  "https://gateway.pinata.cloud/ipfs/QmPsbGNds3T48Q4cHJ4itAiFSjfsa4ghmBzFnb2VwsvePN"
+  "https://gateway.pinata.cloud/ipfs/QmcrRFdYY5R9EdNJmoRFmWaZjnjaDmuZXvHfXmAPoHpH6V"
 );

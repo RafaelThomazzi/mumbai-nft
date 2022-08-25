@@ -8,7 +8,7 @@ module.exports = {
     hardhat: {
     },
     matic: {
-      url: "https://rpc-mumbai.maticvigil.com",
+      url: "https://polygon-rpc.com/",
       accounts: [process.env.OWNER_PRIVATE_KEY]
     }
   },

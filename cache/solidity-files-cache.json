@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\rafae\\Documents\\workspaces\\mumbai-nft\\contracts\\Wearable.sol": {
-      "lastModificationDate": 1660797831942,
-      "contentHash": "1597b2e7cddbe2a9b89977b8929cb039",
+      "lastModificationDate": 1661344854740,
+      "contentHash": "12b6f743891ea0ce3ac2cce4065c992d",
       "sourceName": "contracts/Wearable.sol",
       "solcConfig": {
         "version": "0.8.1",

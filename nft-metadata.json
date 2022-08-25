@@ -1,15 +1,34 @@
 {
     "attributes": [
         {
-            "trait_type": "Server",
-            "value": "Malvera"
+            "trait_type": "Year",
+            "value": "2022"
         },
         {
-            "trait_type": "Year",
-            "value": "2006"
+            "trait_type": "Type",
+            "value": "Upper Body"
+        },
+        {
+            "trait_type": "Body Shape",
+            "value": "Male & Female"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Uncommon"
+        },
+        {
+            "trait_type": "Item",
+            "value": "CI&T at the NYSE T-Shirt"
+        },
+        {
+            "trait_type": "Platform",
+            "value": "Decentraland"
         }
     ],
-    "description": "Three friends on the Malvera server in 2006.",
-    "image": "ipfs://QmYBieYBQodaoQZpoPDLeTG1SP2jNXtkii6Y1HJ4hcaCM4",
-    "name": "Master Sorcerers"
+    "description": "Here in CI&T we are digital specialists bringing value to the most valuable brands in the world, and we are now at the NYSE in New York. As we step forward in expanding our impact in building people’s tomorrow, we also wanted to share with our partners this digital token of gratitude: The CI&T at the NYSE T-shirt. If you work with us, you can wear it in Decentraland and show to the world that you are also making the difference in people’s lives.",
+    "image": "ipfs://QmQk53ZRVL4mcNGoTb7UJcKq7H7ixdcj8Mi8XK6hYLThrB",
+    "name": "CI&T at the NYSE T-Shirt",
+    "external_link": "https://ciandt.com",
+    "seller_fee_basis_points": 10000,
+    "fee_recipient": "0x3A72F27370cd701ddb3Ed677eFB7AFCC37a30AdC"
 }

@@ -19,7 +19,7 @@ contract Wearable is
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() ERC721("Wearable", "OLA") {
+    constructor() ERC721("Wearable", "CIANDT") {
         uint96 denominator = _feeDenominator();
         _setDefaultRoyalty(msg.sender, (denominator * 1) / 20);
     }
@@ -131,5 +131,9 @@ contract Wearable is
 
     function tokenByIndex(uint256 index) override public view returns (uint256){
         return ERC721Enumerable.tokenByIndex(index);
+    }
+
+    function setRoyaltyInfo(address _receiver, uint96 _royaltyFeesInBips) public onlyOwner {
+        _setDefaultRoyalty(_receiver, _royaltyFeesInBips);
     }
 }
